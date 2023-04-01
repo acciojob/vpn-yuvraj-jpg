@@ -5,23 +5,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Country {
+public class Connection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    private CountryName countryName;
-    private String code;
 
     @ManyToOne
     @JoinColumn
     ServiceProvider serviceProvider;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn
     User user;
 }

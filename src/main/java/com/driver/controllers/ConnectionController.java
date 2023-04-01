@@ -1,5 +1,6 @@
 package com.driver.controllers;
 
+import com.driver.model.User;
 import com.driver.services.impl.ConnectionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,7 +35,7 @@ public class ConnectionController {
 
     @GetMapping("/communicate")
     public ResponseEntity<Void> communicate(@RequestParam int senderId, @RequestParam int receiverId) throws Exception{
-        //Establish a connection between sender and receiver users
+        //  Establish a connection between sender and receiver users
         //To communicate to the receiver, sender should be in the current country of the receiver.
         //If the receiver is connected to a vpn, his current country is the one he is connected to.
         //If the receiver is not connected to vpn, his current country is his original country.

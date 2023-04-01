@@ -5,23 +5,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Country {
+public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String username;
+    private String password;
 
-    private CountryName countryName;
-    private String code;
-
-    @ManyToOne
-    @JoinColumn
-    ServiceProvider serviceProvider;
-
-    @OneToOne
-    User user;
+    @OneToMany(mappedBy = "admin",cascade = CascadeType.ALL)
+    List<ServiceProvider> serviceProviderList = new ArrayList<>();
 }
